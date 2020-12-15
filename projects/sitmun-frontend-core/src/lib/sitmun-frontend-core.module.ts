@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 
 import {TerritoryService} from './territory/territory.service';
 import {TerritoryTypeService} from './territory/territory-type.service';
+import {TerritoryGroupTypeService} from './territory/territory-group-type.service';
 import {UserPositionService} from './user/user-position.service';
 import {UserConfigurationService} from './user/user-configuration.service';
 import {RoleService} from './role/role.service';
@@ -65,7 +66,7 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   declarations: [
     HasAnyAuthorityDirective,
-    HasAnyAuthorityOnTerritoryDirective
+    HasAnyAuthorityOnTerritoryDirective,
   ],
   exports: [
     HasAnyAuthorityDirective,
@@ -80,6 +81,7 @@ export class SitmunFrontendCoreModule {
       providers: [
         TerritoryService,
         TerritoryTypeService,
+        TerritoryGroupTypeService,
         RoleService,
         AccountService,
         AuthService,
