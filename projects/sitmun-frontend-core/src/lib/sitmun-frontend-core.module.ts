@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import {HttpClientModule, HTTP_INTERCEPTORS, HttpClient} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 //import { AngularHalModule } from '../../lib/angular-hal';
-
+import {CodeListService} from './codelist/codelist.service';
 import {TerritoryService} from './territory/territory.service';
 import {TerritoryTypeService} from './territory/territory-type.service';
 import {TerritoryGroupTypeService} from './territory/territory-group-type.service';
@@ -79,6 +79,7 @@ export class SitmunFrontendCoreModule {
     return {
       ngModule: SitmunFrontendCoreModule,
       providers: [
+        CodeListService,
         TerritoryService,
         TerritoryTypeService,
         TerritoryGroupTypeService,
