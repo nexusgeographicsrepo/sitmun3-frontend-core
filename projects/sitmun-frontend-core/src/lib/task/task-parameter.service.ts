@@ -8,10 +8,9 @@ import {RestService} from '../angular-hal/src/lib/rest.service';
 @Injectable() 
 export class TaskParameterService extends RestService<TaskParameter> {
   
-  /** API base path */
-  public API = '/api';
+
   /** API resource path */
-  public TASK_PARAMETER_API = this.API + '/task-parameters';
+  public TASK_PARAMETER_API = 'task-parameters';
 
   /** constructor */
   constructor(injector: Injector,private http: HttpClient) {
@@ -38,7 +37,7 @@ export class TaskParameterService extends RestService<TaskParameter> {
     } else {
       item.task = item.task._links.self.href;
   
-      result = this.http.post(this.TASK_PARAMETER_API , item);
+      result = this.http.post(this.resourceService.getResourceUrl(this.TASK_PARAMETER_API) , item);
     }
     return result;
   }

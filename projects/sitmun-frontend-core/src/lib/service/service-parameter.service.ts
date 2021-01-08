@@ -7,11 +7,9 @@ import {RestService} from '../angular-hal/src/lib/rest.service';
 /** Service parameter manager service */
 @Injectable() 
 export class ServiceParameterService extends RestService<ServiceParameter> {
-  
-  /** API base path */
-  public API = '/api';
+
   /** API resource path */
-  public SERVICE_PARAMETER_API = this.API + '/service-parameters';
+  public SERVICE_PARAMETER_API = 'service-parameters';
 
   /** constructor */
   constructor(injector: Injector,private http: HttpClient) {
@@ -43,7 +41,7 @@ export class ServiceParameterService extends RestService<ServiceParameter> {
     } else {
       item.service = item.service._links.self.href;
   
-      result = this.http.post(this.SERVICE_PARAMETER_API , item);
+      result = this.http.post(this.resourceService.getResourceUrl(this.SERVICE_PARAMETER_API) , item);
     }
     return result;
   }

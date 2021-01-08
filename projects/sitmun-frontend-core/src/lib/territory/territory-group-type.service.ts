@@ -8,10 +8,8 @@ import {RestService} from '../angular-hal/src/lib/rest.service';
 })
 export class TerritoryGroupTypeService extends RestService<TerritoryGroupType> {
   
-  /** API base path */
-  public API = '/api';
   /** API resource path */
-  public TERRITORYGROUPTYPE_API = this.API + '/territory-group-types';
+  public TERRITORYGROUPTYPE_API = 'territory-group-types';
 
   /** constructor */
   constructor(injector: Injector,private http: HttpClient) {
@@ -30,7 +28,7 @@ export class TerritoryGroupTypeService extends RestService<TerritoryGroupType> {
     if (item._links!=null) {
       result = this.http.put(item._links.self.href, item);
     } else {
-      result = this.http.post(this.TERRITORYGROUPTYPE_API , item);
+      result = this.http.post(this.resourceService.getResourceUrl(this.TERRITORYGROUPTYPE_API) , item);
     }
     return result;
   }

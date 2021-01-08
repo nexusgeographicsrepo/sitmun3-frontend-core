@@ -7,11 +7,9 @@ import {RestService} from '../angular-hal/src/lib/rest.service';
 /** Service manager service */
 @Injectable()
 export class ServiceService extends RestService<Service> {
-  
-  /** API base path */
-  public API = '/api';
+
   /** API resource path */
-  public SERVICE_API = this.API + '/services';
+  public SERVICE_API = 'services';
 
   /** constructor */
   constructor(injector: Injector,private http: HttpClient) {
@@ -62,7 +60,7 @@ export class ServiceService extends RestService<Service> {
 
            
     } else {
-      result = this.http.post(this.SERVICE_API , item);
+      result = this.http.post(this.resourceService.getResourceUrl(this.SERVICE_API) , item);
     }
     return result;
   }

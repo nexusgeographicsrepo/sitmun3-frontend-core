@@ -7,11 +7,9 @@ import {RestService} from '../angular-hal/src/lib/rest.service';
 /** Background manager service */
 @Injectable()
 export class BackgroundService extends RestService<Background> {
-  
-  /** API base path */
-  public API = '/api';
+
   /** API resource path */
-  public BACKGROUND_API = this.API + '/backgrounds';
+  public BACKGROUND_API = 'backgrounds';
 
   /** constructor */
   constructor(injector: Injector,private http: HttpClient) {
@@ -61,7 +59,7 @@ export class BackgroundService extends RestService<Background> {
 
            
     } else {
-      result = this.http.post(this.BACKGROUND_API , item);
+      result = this.http.post(this.resourceService.getResourceUrl(this.BACKGROUND_API) , item);
     }
     return result;
   }

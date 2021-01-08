@@ -8,10 +8,8 @@ import {RestService} from '../angular-hal/src/lib/rest.service';
 @Injectable()
 export class TaskService extends RestService<Task> {
 
-    /** API base path */
-    public API = '/api';
     /** API resource path */
-    public CONNECTION_API = this.API + '/tasks';
+    public CONNECTION_API = 'tasks';
 
     /** constructor */
     constructor(injector: Injector, private http: HttpClient) {
@@ -33,7 +31,7 @@ export class TaskService extends RestService<Task> {
         if (item._links != null) {
             result = this.http.put(item._links.self.href, item);
         } else {
-            result = this.http.post(this.CONNECTION_API, item);
+            result = this.http.post(this.resourceService.getResourceUrl(this.CONNECTION_API), item);
         }
         return result;
     }

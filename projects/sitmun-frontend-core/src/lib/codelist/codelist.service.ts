@@ -8,10 +8,9 @@ import {RestService} from '../angular-hal/src/lib/rest.service';
 @Injectable()
 export class CodeListService extends RestService<CodeList> {
   
-  /** API base path */
-  public API = '/api';
+ 
   /** API resource path */
-  public CODELIST_API = this.API + '/codelist-values';
+  public CODELIST_API = 'codelist-values';
 
   /** constructor */
   constructor(injector: Injector,private http: HttpClient) {
@@ -31,7 +30,7 @@ export class CodeListService extends RestService<CodeList> {
       
       result = this.http.put(item._links.self.href, item);
     } else {
-      result = this.http.post(this.CODELIST_API , item);
+      result = this.http.post(this.resourceService.getResourceUrl(this.CODELIST_API ), item);
     }
     return result;
   }

@@ -237,7 +237,7 @@ export class ResourceService {
     }
 
     /** get resource URL from a given path*/
-    private getResourceUrl(resource?: string): string {
+    public getResourceUrl(resource?: string): string {
         let url = ResourceService.getURL();
         if (!url.endsWith('/')) {
             url = url.concat('/');

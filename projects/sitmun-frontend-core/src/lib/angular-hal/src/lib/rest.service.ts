@@ -23,7 +23,7 @@ export class RestService<T extends Resource> {
     /** resource array */
     public resourceArray: ResourceArray<T>;
     /** resource service */
-    private resourceService: ResourceService;
+    public resourceService: ResourceService;
     /** _embedded field name */
     private _embedded: string = '_embedded';
 
