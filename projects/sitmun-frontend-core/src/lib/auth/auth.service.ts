@@ -32,18 +32,13 @@ export class AuthService {
         return this.http.post(this.resourceService.getResourceUrl(this.AUTH_API), data, {observe : 'response'}).map(authenticateSuccess.bind(this));
 
         function authenticateSuccess(resp) {
-            const bearerToken = resp.headers.get('Authorization');
-            if (bearerToken && bearerToken.slice(0, 7) === 'Bearer ') {
-                const jwt = bearerToken.slice(7, bearerToken.length);
+            if (resp.ok) {
+                const jwt = resp.body.id_token;
                 this.storeAuthenticationToken(jwt);
                 //const expiresAt = moment().add( resp.headers.get('Token-Validity'),'milisecond');
                 //sessionStorage.setItem('expires_at', JSON.stringify(expiresAt.valueOf()));
                 return jwt;
-            }
-            
-            
-
-            
+            }                    
         }
     }
     
