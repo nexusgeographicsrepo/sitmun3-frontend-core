@@ -6,7 +6,7 @@ import {Sort} from './sort';
 import {ResourceService} from './resource.service';
 import {SubTypeBuilder} from './subtype-builder';
 import {isNullOrUndefined} from 'util';
-import {Observable} from 'rxjs/internal/Observable';
+import {Observable} from 'rxjs';
 import {Injector} from "@angular/core";
 
 /** HAL param data model */
