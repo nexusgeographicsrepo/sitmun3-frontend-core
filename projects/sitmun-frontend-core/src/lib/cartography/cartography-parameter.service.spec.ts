@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { CartographyParameterService } from './cartography-parameter.service';
 
-describe('ServiceParameterService', () => {
+describe('CartographyParameterService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [CartographyParameterService]
