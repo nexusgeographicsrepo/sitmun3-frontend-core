@@ -37,7 +37,7 @@ export class ConnectionService extends RestService<Connection> {
 
   testConnection(item:any): Observable<any> {
     let result: Observable<Object>;
-    result=this.http.post(this.resourceService.getResourceUrl(this.CONNECTION_API) , item);
+    result=this.http.post(this.resourceService.getResourceUrl(this.CONNECTION_API)+"/test" , item);
     return result;
   }
   
