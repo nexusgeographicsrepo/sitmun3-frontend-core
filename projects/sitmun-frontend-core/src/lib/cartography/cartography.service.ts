@@ -37,9 +37,6 @@ export class CartographyService extends RestService<Cartography> {
     cartographyService._links = {};
     cartographyService._links.self = {};
     cartographyService._links.self.href = "";
-
-    
-    
     
     let cartographySelectionService:Service = new Service();
     cartographySelectionService._links = {};
@@ -48,23 +45,23 @@ export class CartographyService extends RestService<Cartography> {
 
     if (item.service != null) {
       cartographyService=  item.service;
-      /*if (typeof item.service._links != 'undefined') {
+      if (typeof item.service._links != 'undefined') {
         item.service = item.service._links.self.href;
-      } */
+      }
     }
 
     if (item.selectionService != null) {
       cartographySelectionService = item.selectionService
-      /*if (typeof item.selectionService._links != 'undefined') {
+      if (typeof item.selectionService._links != 'undefined') {
         item.selectionService = item.selectionService._links.self.href;
-      } */
+      }
     }
 
     if (item.connection != null) {
       cartographyConnection=  item.connection;
-      /*if (typeof item.connection._links != 'undefined') {
+      if (typeof item.connection._links != 'undefined') {
         item.connection = item.connection._links.self.href;
-      }*/
+      }
     }
 
     if (item._links != null) {
