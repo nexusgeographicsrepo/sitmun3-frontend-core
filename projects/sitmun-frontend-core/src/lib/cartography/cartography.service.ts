@@ -3,6 +3,8 @@ import { Injectable, Injector } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RestService } from '../angular-hal/src/lib/rest.service';
+import { Connection } from '../connection/connection.model';
+import { Service } from '../service/service.model';
 
 /** Cartography manager service */
 @Injectable()
@@ -26,39 +28,43 @@ export class CartographyService extends RestService<Cartography> {
   save(item: Cartography): Observable<any> {
     let result: Observable<Object>;
 
-    let cartographyConnection = item.connection;
-    let cartographyService = item.service;
-    let cartographySelectionService = item.selectionService;
+    let cartographyConnection:Connection=new Connection();
+    cartographyConnection._links = {};
+    cartographyConnection._links.self = {};
+    cartographyConnection._links.self.href = "";
+     
+    let cartographyService:Service=new Service();
+    cartographyService._links = {};
+    cartographyService._links.self = {};
+    cartographyService._links.self.href = "";
 
+    
+    
+    
+    let cartographySelectionService:Service = new Service();
+    cartographySelectionService._links = {};
+    cartographySelectionService._links.self = {};
+    cartographySelectionService._links.self.href = "";
 
     if (item.service != null) {
-      if (typeof item.service._links != 'undefined') {
+      cartographyService=  item.service;
+      /*if (typeof item.service._links != 'undefined') {
         item.service = item.service._links.self.href;
-      } else {
-        cartographyService._links = {};
-        cartographyService._links.self = {};
-        cartographyService._links.self.href = "";
-      }
+      } */
     }
 
     if (item.selectionService != null) {
-      if (typeof item.selectionService._links != 'undefined') {
+      cartographySelectionService = item.selectionService
+      /*if (typeof item.selectionService._links != 'undefined') {
         item.selectionService = item.selectionService._links.self.href;
-      } else {
-        cartographySelectionService._links = {};
-        cartographySelectionService._links.self = {};
-        cartographySelectionService._links.self.href = "";
-      }
+      } */
     }
 
     if (item.connection != null) {
-      if (typeof item.connection._links != 'undefined') {
+      cartographyConnection=  item.connection;
+      /*if (typeof item.connection._links != 'undefined') {
         item.connection = item.connection._links.self.href;
-      } else {
-        cartographyConnection._links = {};
-        cartographyConnection._links.self = {};
-        cartographyConnection._links.self.href = "";
-      } 
+      }*/
     }
 
     if (item._links != null) {
