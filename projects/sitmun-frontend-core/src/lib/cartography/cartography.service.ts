@@ -88,7 +88,7 @@ export class CartographyService extends RestService<Cartography> {
       }
 
       if (cartographySelectionService._links.self.href == '') {
-        item.substituteRelation('spatialSelectionService', cartographySelectionService).subscribe(result => {
+        item.deleteRelation('spatialSelectionService', cartographySelectionService).subscribe(result => {
         }, error => console.error(error));
       } else {
         item.substituteRelation('spatialSelectionService', cartographySelectionService).subscribe(result => {
