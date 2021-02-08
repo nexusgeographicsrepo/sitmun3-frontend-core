@@ -58,11 +58,20 @@ export class Cartography extends Resource {
   /** connection*/
   public connection: Connection;
 
+  /** queryableFeatureEnabled */
+  public queryableFeatureEnabled: Boolean;
+
+    /** queryableLayers */
+  public queryableFeatureAvailable: Boolean;
+
+    /** queryableLayers */
+  public queryableLayers: string[];
+
   /** availabilities*/
   public availabilities : CartographyAvailability[];
 
   /** whether layer is queryable*/ 
-  public selectable: Boolean;
+  public selectableFeatureEnabled: Boolean;
 
   /** selection layer*/
   public selectionLayer: string;
@@ -71,19 +80,19 @@ export class Cartography extends Resource {
   public selectionService: Service;
 
   /** legend tip*/  
-  public legendTip: string;
+  public legendType: string;
   
   /** legend url*/
-  public legendUrl: string;
+  public legendURL: string;
 
   /** whether layer is editable*/
   public editable: Boolean;
 
   /** metadata URL*/
-  public metadataUrl: string;
+  public metadataURL: string;
 
   /** whether layer is themable*/
-  public themeable: Boolean;
+  public thematic: Boolean;
   
   /** geometry type*/
   public geometryType: string;
