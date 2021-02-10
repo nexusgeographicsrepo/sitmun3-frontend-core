@@ -28,17 +28,17 @@ export class CartographyService extends RestService<Cartography> {
   save(item: Cartography): Observable<any> {
     let result: Observable<Object>;
 
-    let cartographyConnection:Connection=new Connection();
+    let cartographyConnection:any={};
     cartographyConnection._links = {};
     cartographyConnection._links.self = {};
     cartographyConnection._links.self.href = "";
      
-    let cartographyService:Service=new Service();
+    let cartographyService:any={};
     cartographyService._links = {};
     cartographyService._links.self = {};
     cartographyService._links.self.href = "";
     
-    let cartographySelectionService:Service = new Service();
+    let cartographySelectionService:any = {};
     cartographySelectionService._links = {};
     cartographySelectionService._links.self = {};
     cartographySelectionService._links.self.href = "";
