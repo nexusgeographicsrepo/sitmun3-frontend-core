@@ -27,9 +27,19 @@ export class Cartography extends Resource {
   public source: String;
 
   /** whether cartography is blocked*/
-  public blocked: boolean;
+  public blocked: boolean;  
 
-  
+  /** apply filter to get map*/
+  public applyFilterToGetMap: String;  
+
+  /** apply filter to get feature information*/
+  public applyFilterToGetFeatureInfo: boolean;  
+
+  /** apply filter to spatial selection*/
+  public applyFilterToSpatialSelection: boolean;  
+
+  /** selectable layers*/
+  public selectableLayers: string[];
 
   /** transparency*/ 
   public transparency: Number;
@@ -90,6 +100,9 @@ export class Cartography extends Resource {
 
   /** metadata URL*/
   public metadataURL: string;
+
+  /** metadata URL*/
+  public datasetURL: string;
 
   /** whether layer is themable*/
   public thematic: Boolean;
