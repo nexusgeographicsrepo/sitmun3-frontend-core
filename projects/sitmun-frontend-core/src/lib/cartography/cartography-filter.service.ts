@@ -37,6 +37,9 @@ export class CartographyFilterService extends RestService<CartographyFilter> {
     } else {
       
       item.cartography = item.cartography._links.self.href;
+      if (item.territorialLevel != null){
+        item.territorialLevel=item.territorialLevel._links.self.href;
+      }
   
       result = this.http.post(this.resourceService.getResourceUrl(this.CARTOGRAPHY_FILTER_API) , item);
     }
