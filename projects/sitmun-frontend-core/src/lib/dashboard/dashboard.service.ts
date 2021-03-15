@@ -19,6 +19,6 @@ export class DashboardService{
   
     /** get all kpi */
     getAll(): Observable<any> {
-      return this.http.get(this.resourceService.getResourceUrl(this.DASHBOARD_API),{observe : 'response'}).map(response => response[this.DASHBOARD_EMBEDDED]);
+      return this.http.get(this.resourceService.getResourceUrl(this.DASHBOARD_API)).map(response => response[this.DASHBOARD_EMBEDDED]);
     }
 }
