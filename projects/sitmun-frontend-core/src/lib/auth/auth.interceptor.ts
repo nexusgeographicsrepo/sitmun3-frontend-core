@@ -11,7 +11,8 @@ export class AuthInterceptor implements HttpInterceptor {
     
     /** request handler */
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        if (!request || !request.url || !(request.url.includes("api")) ) {
+        if (!request || !request.url || !(request.url.includes("/api/")) ) {
+            request.headers.append('Access-Control-Allow-Origin', '*')
             return next.handle(request);
         }
         const token = sessionStorage.getItem('authenticationToken');
