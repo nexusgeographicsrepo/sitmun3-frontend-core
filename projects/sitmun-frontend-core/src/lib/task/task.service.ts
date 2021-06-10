@@ -98,6 +98,13 @@ export class TaskService extends RestService<Task> {
                 item.type = item.type._links.self.href
             }
 
+            if(item.roles){
+                let roles = [...item.roles];
+                delete item.roles;
+                item.substituteAllRelation('roles',roles).subscribe(result => {
+                }, error => console.error(error));
+            }
+
             result = this.http.put(item._links.self.href, item);            
         } else {
             if(item.cartography){
