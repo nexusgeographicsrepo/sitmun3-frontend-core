@@ -47,6 +47,7 @@ import { TranslationService } from './translation/translation.service';
 import { LanguageService } from './translation/language.service';
 import { DashboardService } from './dashboard/dashboard.service';
 import { CapabilitiesService } from './capabilities/capabilities.service';
+import { ConfigurationParametersService } from './configuration/configuration-parameters.service';
 /** load i18n assets*/
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -99,6 +100,7 @@ export class SitmunFrontendCoreModule {
         TaskParameterService,
         TaskAvailabilityService,
         ServiceService,
+        ConfigurationParametersService,
         CapabilitiesService,
         ServiceParameterService,
         CartographyService,
