@@ -28,4 +28,9 @@ export class CartographyStyle extends Resource {
   /** cartography*/
   public cartography: Cartography;
 
+  public defaultStyle: boolean;
+
+  public legendURL: any;
+  
+
 }
