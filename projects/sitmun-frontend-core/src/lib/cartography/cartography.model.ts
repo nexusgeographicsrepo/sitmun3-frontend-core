@@ -31,7 +31,7 @@ export class Cartography extends Resource {
   public blocked: boolean;  
 
   /** apply filter to get map*/
-  public applyFilterToGetMap: String;  
+  public applyFilterToGetMap: boolean;  
 
   /** apply filter to get feature information*/
   public applyFilterToGetFeatureInfo: boolean;  
