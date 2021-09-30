@@ -27,5 +27,12 @@ export class TreeNode extends Resource {
   public cartography: Cartography;
   /** tree */  
   public tree: Tree;
+  /** tree */  
+  public filterGetFeatureInfo: boolean;
+  /** tree */  
+  public filterGetMap: boolean;
+  /** tree */  
+  public filterSelectable: boolean;
+  
 
 }
