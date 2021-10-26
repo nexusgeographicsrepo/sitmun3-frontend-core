@@ -28,8 +28,11 @@ export class ResourceService {
     }
 
     /** get all resources from a base URI of a given type */
-    public getAll<T extends Resource>(type: { new(): T }, resource: string, _embedded: string, options?: HalOptions, subType?: SubTypeBuilder, embeddedName?:String): Observable<ResourceArray<T>> {
-        const uri = this.getResourceUrl(resource).concat('?projection=view');
+    public getAll<T extends Resource>(type: { new(): T }, resource: string, _embedded: string, options?: HalOptions, subType?: SubTypeBuilder, embeddedName?:String, ignoreProjection?:boolean): Observable<ResourceArray<T>> {
+        let uri = this.getResourceUrl(resource);
+        if(!ignoreProjection){
+            uri = uri.concat('?projection=view');
+        }
         const params = ResourceHelper.optionParams(new HttpParams(), options);
         const result: ResourceArray<T> = ResourceHelper.createEmptyResult<T>(_embedded);
 

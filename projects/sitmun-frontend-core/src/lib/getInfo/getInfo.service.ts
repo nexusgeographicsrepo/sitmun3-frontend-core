@@ -11,11 +11,11 @@ import { Info } from './info.model';
 export class GetInfoService extends RestService<Info>  {
 
   /** API resource path */
-  public INFO_API = 'helpers/getInfo?url=';
+  public INFO_API = 'helpers/feature-type?url=';
 
   /** constructor */
   constructor(injector: Injector,private http: HttpClient) {
-    super(Info, "helpers/getInfo?url=", injector);
+    super(Info, "helpers/feature-type?url=", injector);
   }
 
     /** save service*/
