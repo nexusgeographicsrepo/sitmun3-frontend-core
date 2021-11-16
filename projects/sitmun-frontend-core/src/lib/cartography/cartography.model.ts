@@ -114,6 +114,8 @@ export class Cartography extends Resource {
   public styles?: CartographyStyle[]
 
   public useAllStyles: boolean;
+
+  public stylesNames?: string[];
   
 
 }
